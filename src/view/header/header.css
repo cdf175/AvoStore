@@ -1,0 +1,44 @@
+/***************************** Components *********************************/
+
+/**Header**/
+.header{
+    height: 4rem;
+    border-radius: .3rem;
+    box-shadow: 0px 0px 4px 2px rgba(171,171,171,0.75);
+        -webkit-box-shadow: 0px 0px 4px 2px rgba(171,171,171,0.75);
+        -moz-box-shadow: 0px 0px 4px 2px rgba(171,171,171,0.75);
+    overflow: hidden;
+    margin-bottom: 4rem;    
+}
+
+.header__container{
+    display: flex;
+    justify-content: space-between;
+    height: inherit;
+}
+
+.header__icon-container{
+    display: flex;  
+    min-width: 10rem;
+    align-items: center;
+    justify-content: center; 
+    gap: .5rem;
+    height: inherit;
+}
+
+.header__icon{
+    width: 2.2rem;
+    height: 2.2rem; 
+}
+
+.header__icon-container:hover{
+    background-color: #e9e9e9 ;
+}
+
+.icon--selected{
+    background-color: #e9e9e9 ;
+}
+
+.header__a{
+    height: inherit;
+}

@@ -1,0 +1,13 @@
+/**footer**/
+footer{
+    margin-top: 3rem;
+    padding: 4rem 1rem;
+    border-top: 1px solid rgb(240, 240, 240) ;
+}
+
+@media only screen and (min-width: 768px) {
+    .footer__container{
+        display: flex;
+        justify-content: space-between;
+    }
+}

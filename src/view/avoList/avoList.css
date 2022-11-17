@@ -1,0 +1,29 @@
+
+/**Article **/
+.articles-container{
+    display: grid;
+    grid-gap: 2rem;
+    justify-content: center;
+}
+.article{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgb(187, 187, 187) ;
+    border-radius: .3rem;
+    overflow: hidden;
+    max-width: 22rem; 
+}
+
+.article-container img{
+    max-width: 22rem; 
+}
+
+.article__text{
+    padding: 1rem;
+}
+
+@media only screen and (min-width: 768px) {
+    .articles-container{
+       grid-template-columns: 50% 50% ;
+    }
+}
