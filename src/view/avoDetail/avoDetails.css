@@ -1,0 +1,22 @@
+#cantAvocado{
+    padding-left: 0.5rem;
+}
+
+.button-content{
+    display: flex;
+    height: 2rem;
+    
+}
+
+.addButton{
+    background-color: #16AB39;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.addButton:active{
+    background-color: #0d7024;
+}

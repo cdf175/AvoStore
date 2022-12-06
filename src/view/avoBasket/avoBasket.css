@@ -1,0 +1,33 @@
+/**Article **/
+.articles-basket{
+    display: grid;
+    grid-gap: 1rem;
+    /*justify-content: center;*/
+}
+
+.article-basket{
+   display: flex;
+   justify-content: space-between;
+   border-bottom: 1px solid rgba(171,171,171,0.75);
+   margin: 1rem 0;
+}
+
+.imgAvoCart{
+    width: 8rem;
+}
+
+.cart-subtotal{
+    display: flex;
+    justify-content: space-between;
+}
+
+.btnRemove-conteiner{
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+}
+
+.btnRemove{
+    height: 2rem;
+    width: 2rem;
+}

@@ -1,6 +1,13 @@
+/*********       Trae los modulos que necesito de los otros archivos js          *********/
+import {refreshBasket} from "./src/view/header/header.js"
 import {avocadosList,loadAvoList} from "./src/view/avoList/avoList.js"
-import {avoDetail} from "./src/view/avoDetail/avoDetail.js"
+import {loadAvoDetail} from "./src/view/avoDetail/avoDetail.js"
+import {loadAvoBasket} from "./src/view/avoBasket/avoBasket.js"
 
+/*****************************************************************************************/
+
+
+/*********   Reemplaza pedazo de la pagina con el archivo html indicado en el valor de data-include   *********/
 const InsertaHTML = async (e)=>{
     const container = document.querySelector('body')
     const HTMLfile = e.getAttribute('data-include')
@@ -9,46 +16,53 @@ const InsertaHTML = async (e)=>{
     const htmlText = await res.text()
 
     e.outerHTML = htmlText
+
+    if(htmlText.indexOf("header.html")){
+        refreshBasket()
+    }
 }
 
 const loadPage = ()=>{
+
     document.querySelectorAll("[data-include]").forEach((e)=>{
         InsertaHTML(e)
     })
-    avocadosList()
+    
+    if(location.hash.slice(1).split('/')[1]){
+        handleRouter()
+    }
+    else{
+        avocadosList()
+    }
 }
 
+// Se ejecuta al iniciar
 loadPage()
 
 
-/*document.addEventListener("click",(e) => {
-    if(!e.target.matches(".article")) return false;
-    console.log("click en articulo")
-})*/
 
-window.addEventListener('hashchange', () => {
+window.addEventListener('hashchange', handleRouter);
 
+function handleRouter(){
     const view = location.hash.slice(1).split('/')[1] || '/';
     const id = location.hash.slice(1).split('/')[2] || '/';
-    console.log(view);
-    console.log(id);
 
-    window.history.pushState({}, "Hecho", "/");
     switch (view) {
-        case "avoDetail":
-            avoDetail(id);
+        case "/" :
+            loadAvoList()
             break;
         case "avoList":
             loadAvoList()
             break;
+        case "avoDetail":
+            loadAvoDetail(id);
+            break;
+        case "avoBasket":
+            loadAvoBasket();
+            break;
     }
 
-
-    //localStorage.setItem('charID', id);
-    console.log('hasta aca');
-    //window.location.replace('/character.html');
-});
-
+}
 
 
 

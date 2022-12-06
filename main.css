@@ -1,6 +1,10 @@
+@import url("src/assets/css/loader.css");
 @import url("src/view/header/header.css");
 @import url("src/view/footer/footer.css");
 @import url("src/view/avoList/avoList.css");
+@import url("src/view/avoDetail/avoDetails.css");
+@import url("src/view/avoBasket/avoBasket.css");
+
 
 /*************************      Custom Properties       *************************/
 :root{
@@ -86,3 +90,5 @@ body{
 .title img{
     width: 3.5rem;
 }
+
+
