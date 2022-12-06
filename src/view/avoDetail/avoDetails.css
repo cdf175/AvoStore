@@ -20,3 +20,22 @@
 .addButton:active{
     background-color: #0d7024;
 }
+
+.detail-container{
+    display: grid;
+    padding: 0 1rem;
+
+}
+
+.detail-description{
+    display: grid; 
+    padding: 0 1rem;
+    margin: 2rem 0;
+}
+
+@media only screen and (min-width: 768px) {
+    .detail-container{
+       grid-template-columns: 50% 50% ;
+       align-items: center;
+    }
+}

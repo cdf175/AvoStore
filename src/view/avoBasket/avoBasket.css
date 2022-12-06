@@ -19,12 +19,13 @@
 .cart-subtotal{
     display: flex;
     justify-content: space-between;
+    padding: 0 1.5rem;
 }
 
 .btnRemove-conteiner{
     display: flex;
     align-items: center;
-    padding: 1rem;
+    padding: 1.5rem;
 }
 
 .btnRemove{
