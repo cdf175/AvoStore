@@ -35,9 +35,9 @@ const avocado = {
     shape: "Oval",
     hardiness: "1 °C",
     taste: "Catchy, is an avocado"
-    }
   }
 }
+
 ```
 #### Tareas:
 - Maquetar el diseño en HTML y CSS

@@ -7,7 +7,10 @@ const loader = document.getElementById('lds-ring');
 const avocadosList = async () =>{
     
     loader.style.display = 'grid';
+
+    // data es un array de objetos con las propiedades de la palta
     const { data } = await getAvocados();
+    
     const $container = document.querySelector('.articles-container');
 
     const $fragment = new DocumentFragment();
