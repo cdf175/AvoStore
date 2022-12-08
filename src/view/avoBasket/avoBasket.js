@@ -11,8 +11,8 @@ const avocadosBasket = async () =>{
     document.querySelectorAll(".cart-subtotal").forEach(el => el.remove());
     
     if(!(data instanceof Array) || data.length === 0){
-        console.log("No es un array")
         $container.innerHTML = "<h2>La canasta esta vacia</h2>"
+        refreshBasket()
         return
     }
 
@@ -64,30 +64,27 @@ const loadAvoBasket = async ()=>{
 
 function eventBasket(){
 
-    let buttonBasket = document.querySelector(".articles-basket")
-    buttonBasket.addEventListener("click", handleBasket)
+    let $articles = document.querySelector(".articles-basket")
+    $articles.addEventListener("click", handleBasket)
 }
 
 function handleBasket(e){
-    console.log("handke basket")
+    //Array de objetos 
     const data = JSON.parse(localStorage.getItem('cart'));
 
     if(!(data instanceof Array)){
         return
     }
+   //Si hizo click en un boton con la clase btnRemove
+   if(e.target.className === "btnRemove"){
 
-   if(e.target.className){
         let id = e.target.getAttribute("id")
-        console.log({id})
-        
+
+        //Clona data. Resta la cantidad cuando coincide el id. Si la cantidad es 1 no agrega el objeto.
         const avoArr = data.map((obj)=>{
             if(obj.id === id){
-                
                 if(parseInt(obj.cantidad)>1){
-                    
                     obj.cantidad = parseInt(obj.cantidad) - 1
-                    const cantidadHtml = document.querySelector("#avoText" + id + " p")
-                    cantidadHtml.innerHTML = "$" + obj.price + " x " + obj.cantidad
                     return obj
                 }
             }else{
@@ -95,21 +92,16 @@ function handleBasket(e){
             }
         })
 
-        console.log({avoArr})
-
+        //filtra elementos null
         const cart = avoArr.filter(value=>value)
-
-        console.log({cart})
 
         if(cart){
             localStorage.setItem('cart',JSON.stringify(cart))
-            if(avoArr.length != cart.length) avocadosBasket()
         }else{
             localStorage.clear()
-            avocadosBasket()
         }
 
-        refreshBasket()
+        avocadosBasket()
    }
 }
 
